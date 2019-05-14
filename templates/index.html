@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+          content="ie=edge">
+
+    <title>Mission to Mars</title>
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+    <style>
+        p.news_title {
+            margin-bottom: 0;
+        }
+
+        p.news_text {
+            margin-bottom: 0;
+            font-size: 0.8rem;
+        }
+
+        #mars-image-weather-facts {
+            margin-top: 2em;
+            height: 38em;
+        }
+
+        p.mars_image img {
+            width: 100%;
+            height: 38em;
+        }
+
+        .weather_box {
+            border: solid rgb(211, 209, 209);
+            height: 12em;
+            padding-top: 1em;
+            padding-left: 0.5em;
+            padding-right: 0.5em;
+        }
+
+        .facts_box {
+            margin-top: 2em;
+        }
+
+        .dataframe {
+            font-size: 0.8rem;
+        }
+
+        #mars-hemispheres-heading {
+            margin-top: 4em;
+            text-align: center;
+        }
+
+        .card {
+            height: 37em;
+            padding: 1em;
+            margin-top: 1em;
+        }
+
+        .mars_hemisphere {
+            height: 32em;
+        }
+
+        .card-body-one {
+            height: 5em
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="jumbotron text-center">
+            <h1>Mission to Mars</h1>
+            <p><a class="btn btn-primary btn-lg"
+                   href="/scrape"
+                   role="button">Scrape New Data</a></p>
+        </div>
+
+        <!-- Mars Documents -->
+        <div class="row"
+             id="mars-news">
+            <div class="col-md-12">
+                <h4 class="section_one">
+                    <strong>Latest Mars News</strong>
+                </h4>
+                <p class="news_title">
+                    <strong>{{mars_document.news_title}}</strong>
+                </p>
+                <p class="news_text">
+                    {{mars_document.news_par}}
+                </p>
+            </div>
+        </div>
+        <div class="row"
+             id="mars-image-weather-facts">
+            <div class="col-md-8">
+                <h4 class="section_two">
+                    <strong>Featured Mars Image</strong>
+                </h4>
+                <p class="mars_image">
+                    <img src={{mars_document.jpl_image_url}}
+                         alt="Mars Featured Image"
+                         title="Mars Featured Image">
+                </p>
+            </div>
+            <div class="col-md-4">
+                <div class="weather_box">
+                    <h6>
+                        <strong>Current Weather on Mars</strong>
+                    </h6>
+                    <p class="mars_weather">
+                        {{mars_document.weather_text}}
+                    </p>
+                </div>
+                <div class="facts_box">
+                    <h6>
+                        <strong>Mars Facts</strong>
+                    </h6>
+                    <p class="mars_facts">
+
+                        <!-- insert table html previously generated -->
+                        <!-- in scrape_mars.py (in the Mars Facts section) -->
+
+                        <table border="1"
+                               class="dataframe">
+                            <thead>
+                                <tr style="text-align: left;">
+                                    <th></th>
+                                    <th>Value</th>
+                                </tr>
+                                <tr>
+                                    <th>Description</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>Equatorial Diameter:</th>
+                                    <td>6,792 km</td>
+                                </tr>
+                                <tr>
+                                    <th>Polar Diameter:</th>
+                                    <td>6,752 km</td>
+                                </tr>
+                                <tr>
+                                    <th>Mass:</th>
+                                    <td>6.42 x 10^23 kg (10.7% Earth)</td>
+                                </tr>
+                                <tr>
+                                    <th>Moons:</th>
+                                    <td>2 (Phobos &amp; Deimos)</td>
+                                </tr>
+                                <tr>
+                                    <th>Orbit Distance:</th>
+                                    <td>227,943,824 km (1.52 AU)</td>
+                                </tr>
+                                <tr>
+                                    <th>Orbit Period:</th>
+                                    <td>687 days (1.9 years)</td>
+                                </tr>
+                                <tr>
+                                    <th>Surface Temperature:</th>
+                                    <td>-153 to 20 &#8451</td>
+                                </tr>
+                                <tr>
+                                    <th>First Record:</th>
+                                    <td>2nd millennium BC</td>
+                                </tr>
+                                <tr>
+                                    <th>Recorded By:</th>
+                                    <td>Egyptian astronomers</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row"
+             id="mars-hemispheres-heading">
+            <div class="col-md-12">
+                <h4 class="section_three">
+                    <strong>Mars Hemispheres</strong>
+                </h4>
+            </div>
+        </div>
+        <div class="row"
+             id="mars-hemispheres-row-one">
+            {% for item in mars_document.hemisphere_image_url %}
+            <div class="col-md-6">
+                <div class="card"
+                     style="width: 100%;">
+                    <img src={{item.img_url}}
+                         class="mars_hemisphere"
+                         alt={{item.title}}>
+                    <div class="card-body">
+                        <h5 class="card-title">{{item.title}}</h5>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>

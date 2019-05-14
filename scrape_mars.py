@@ -81,8 +81,9 @@ def scrape():
     # Use slicing to concatentate the final URL
     featured_image_url = jpl_space_images_url.split('?')[0] + featured_image_endpoint[13:]
 
-    # Add to mars_data dictionary
+    # Add to mars_data dictionary and close browser
     mars_data['jpl_image_url'] = featured_image_url
+    browser.quit()
 
     # ---------------------------------------------------------------------
     # Mars Weather (Twitter)
@@ -162,7 +163,7 @@ def scrape():
     mars_hem_cerberus_content = mars_hem_cerberus_soup.select('.container')[0]
 
     # Cerberus title
-    mars_hem_cerberus_title = mars_hem_cerberus_content.select('.content h2.title')[0].text.strip()[:-9]
+    mars_hem_cerberus_title = mars_hem_cerberus_content.select('.content h2.title')[0].text.strip()
 
     # Cerberus image URL
     mars_hem_cerberus_image = mars_hem_cerberus_content.select('img.wide-image')[0]['src']
@@ -172,7 +173,7 @@ def scrape():
     mars_hem_schiaparelli_content = mars_hem_schiaparelli_soup.select('.container')[0]
 
     # Schiaparelli title
-    mars_hem_schiaparelli_title = mars_hem_schiaparelli_content.select('.content h2.title')[0].text.strip()[:-9]
+    mars_hem_schiaparelli_title = mars_hem_schiaparelli_content.select('.content h2.title')[0].text.strip()
 
     # Schiaparelli image URL
     mars_hem_schiaparelli_image = mars_hem_schiaparelli_content.select('img.wide-image')[0]['src']
@@ -182,7 +183,7 @@ def scrape():
     mars_hem_syrtis_content = mars_hem_syrtis_soup.select('.container')[0]
 
     # Syrtis Major title
-    mars_hem_syrtis_title = mars_hem_syrtis_content.select('.content h2.title')[0].text.strip()[:-9]
+    mars_hem_syrtis_title = mars_hem_syrtis_content.select('.content h2.title')[0].text.strip()
 
     # Syrtis Major image URL
     mars_hem_syrtis_image = mars_hem_syrtis_content.select('img.wide-image')[0]['src']
@@ -192,7 +193,7 @@ def scrape():
     mars_hem_valles_content = mars_hem_valles_soup.select('.container')[0]
 
     # Valles Marineris title
-    mars_hem_valles_title = mars_hem_valles_content.select('.content h2.title')[0].text.strip()[:-9]
+    mars_hem_valles_title = mars_hem_valles_content.select('.content h2.title')[0].text.strip()
 
     # Valles Marineris image URL
     mars_hem_valles_image = mars_hem_valles_content.select('img.wide-image')[0]['src']
